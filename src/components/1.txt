@@ -1,7 +1,3 @@
-import { useDispatch } from "react-redux";
-import { addToCart } from "../cartSlice";
-import { Cart } from "./Cart";
-
 const nikeShoes = [
   {
     name: "Nike Air Max 270",
@@ -88,49 +84,3 @@ const nikeShoes = [
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/10dfb6ca-9206-4ea8-93b5-7a4fc9094cb0/invincible-3-road-running-shoes-KZFTMC.png",
   },
 ];
-
-const Home = () => {
-  return (
-    <div className="home-container grid grid-cols-1 lg:grid-cols-5 gap-4 p-4">
-      <div className="shoe-list col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {nikeShoes.map((shoe) => (
-          <Shoes shoe={shoe} key={shoe.name} />
-        ))}
-      </div>
-      <div className="cart-container col-span-1 lg:col-span-1 border">
-        <Cart />
-      </div>
-    </div>
-  );
-};
-
-export default Home;
-
-function Shoes({ shoe }) {
-  const dispatch = useDispatch();
-  const handleAddCart = () => {
-    dispatch(addToCart(shoe));
-  };
-
-  return (
-    <div className="shoes bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-      <h2 className="text-xl font-semibold text-gray-800 p-4">{shoe.name}</h2>
-      <img
-        className="w-full h-64 object-cover"
-        src={shoe.image}
-        alt={shoe.name}
-      />
-      <div className="p-4">
-        <p className="price text-gray-600">
-          <span className="text-lg font-medium">₹</span> {shoe.price}.00/-
-        </p>
-        <button
-          className="add-btn mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 active:scale-95 transition"
-          onClick={handleAddCart}
-        >
-          Add To Cart
-        </button>
-      </div>
-    </div>
-  );
-}

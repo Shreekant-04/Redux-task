@@ -5,16 +5,17 @@ import { updateCart } from "../cartSlice";
 const Cart = () => {
   return (
     <div className="p-4">
+      <h1 className="text-center	text-xl">Cart</h1>
       <CartItems />
       <TotalAmt />
       <div className="flex flex-col justify-center items-center ">
         <ConditionalLink />
-        <NavLink
+        {/* <NavLink
           to="/"
           className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-3xl hover:bg-blue-600 hover:scale-105 transition"
         >
           Back to Shopping
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );
