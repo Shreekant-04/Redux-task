@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../cartSlice";
-import { Cart } from "./Cart";
 
 const nikeShoes = [
   {
@@ -91,15 +90,10 @@ const nikeShoes = [
 
 const Home = () => {
   return (
-    <div className="home-container grid grid-cols-1 lg:grid-cols-5 gap-4 p-4">
-      <div className="shoe-list col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {nikeShoes.map((shoe) => (
-          <Shoes shoe={shoe} key={shoe.name} />
-        ))}
-      </div>
-      <div className="cart-container col-span-1 lg:col-span-1 border">
-        <Cart />
-      </div>
+    <div className="shoe-list col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {nikeShoes.map((shoe) => (
+        <Shoes shoe={shoe} key={shoe.name} />
+      ))}
     </div>
   );
 };
